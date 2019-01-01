@@ -1,19 +1,22 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.color.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Event;
 import java.awt.Font;
 
-class CalculatorV2 
+class CalculatorV2 implements ActionListener 
 {
     //Global Declaration
     JFrame frm;
     String s1, s2, s3, s4;
+    int c;
+    double total = 0;
     TextField tf;
     Button b1, b2, b3, b4, b5, b6, b7, b8, b9, b0, bDot, bAdd, bSub, bMul, bDiv, bEql, bClr;
-    Font font = new Font("Helvetica", Font.PLAIN, 22);
-
+    Font f1 = new Font("Helvetica", Font.PLAIN, 22);
+    Font f2 = new Font("Cambria", Font.PLAIN, 22);
     //Constructor
 
     CalculatorV2()
@@ -85,9 +88,198 @@ class CalculatorV2
         frm.add(b8);
         frm.add(b9);
         //Formatting
-        tf.setFont(font);
+        tf.setFont(f1);
+        b0.setFont(f2);
+        b1.setFont(f2);
+        b2.setFont(f2);
+        b3.setFont(f2);
+        b4.setFont(f2);
+        b5.setFont(f2);
+        b6.setFont(f2);
+        b7.setFont(f2);
+        b8.setFont(f2);
+        b9.setFont(f2);
+        bAdd.setFont(f2);
+        bSub.setFont(f2);
+        bMul.setFont(f2);
+        bDiv.setFont(f2);
+        bDot.setFont(f2);
+        bEql.setFont(f2);
+        bClr.setFont(f2);
+
+        //Action Listener object
+        b0.addActionListener(this);
+        b1.addActionListener(this);
+        b2.addActionListener(this);
+        b3.addActionListener(this);
+        b4.addActionListener(this);
+        b5.addActionListener(this);
+        b6.addActionListener(this);
+        b7.addActionListener(this);
+        b8.addActionListener(this);
+        b9.addActionListener(this);
+        bAdd.addActionListener(this);
+        bSub.addActionListener(this);
+        bDiv.addActionListener(this);
+        bMul.addActionListener(this);
+        bEql.addActionListener(this);
+        bDot.addActionListener(this);
+        bClr.addActionListener(this);
     }
 
+    //actionPerformed method
+    public void actionPerformed(ActionEvent ae) 
+    {
+        try{
+            if(ae.getSource() == b0)
+            {
+                s1 =  tf.getText();
+                s2 = "0";
+                s3 = s1 + s2;
+                tf.setText(s3);
+            }
+            if(ae.getSource() == b1)
+            {
+                s1 =  tf.getText();
+                s2 = "1";
+                s3 = s1 + s2;
+                tf.setText(s3);
+            }
+            if(ae.getSource() == b2)
+            {
+                s1 =  tf.getText();
+                s2 = "2";
+                s3 = s1 + s2;
+                tf.setText(s3);
+            }
+            if(ae.getSource() == b3)
+            {
+                s1 =  tf.getText();
+                s2 = "3";
+                s3 = s1 + s2;
+                tf.setText(s3);
+            }
+            if(ae.getSource() == b4)
+            {
+                s1 =  tf.getText();
+                s2 = "4";
+                s3 = s1 + s2;
+                tf.setText(s3);
+            }
+            if(ae.getSource() == b5)
+            {
+                s1 =  tf.getText();
+                s2 = "5";
+                s3 = s1 + s2;
+                tf.setText(s3);
+            }
+            if(ae.getSource() == b6)
+            {
+                s1 =  tf.getText();
+                s2 = "6";
+                s3 = s1 + s2;
+                tf.setText(s3);
+            }
+            if(ae.getSource() == b7)
+            {
+                s1 =  tf.getText();
+                s2 = "7";
+                s3 = s1 + s2;
+                tf.setText(s3);
+            }
+            if(ae.getSource() == b8)
+            {
+                s1 =  tf.getText();
+                s2 = "8";
+                s3 = s1 + s2;
+                tf.setText(s3);
+            }
+            if(ae.getSource() == b9)
+            {
+                s1 =  tf.getText();
+                s2 = "9";
+                s3 = s1 + s2;
+                tf.setText(s3);
+            }
+            if(ae.getSource() == bDiv)
+            {
+                c = 1;
+                s1 = tf.getText();
+                tf.setText("");
+            }
+            if(ae.getSource() == bMul)
+            {
+                c = 2;
+                s1 = tf.getText();
+                tf.setText("");
+            }
+            if(ae.getSource() == bAdd)
+            {
+                c = 3;
+                s1 = tf.getText();
+                tf.setText("");
+            }
+            if(ae.getSource() == bSub)
+            {
+                c = 4;
+                s1 = tf.getText();
+                tf.setText("");
+            }
+            if(ae.getSource() == bDot)
+            {
+                s1 = tf.getText();
+                s2 = s1 + ".";
+                tf.setText(s2);
+            }
+            if(ae.getSource() == bClr)
+            {
+                tf.setText(" ");
+            }
+            
+            if(ae.getSource() == bEql)
+            {
+                s4 = tf.getText();
+                if(c == 1)
+                {
+                    try
+                    {
+                        Double i = Double.parseDouble(s4);
+                        if(i != 0)
+                        {
+                            total = Double.parseDouble(s1) / Double.parseDouble(s4);
+                            tf.setText(String.valueOf(total));
+                        }
+                        else
+                        {
+                            tf.setText("Invalid Operation");
+                        }
+                    }
+                    catch(Exception e){}
+                }
+
+                else if(c == 2)
+                {
+                    total = Double.parseDouble(s1) / Double.parseDouble(s4);
+                    tf.setText(String.valueOf(total));
+                }
+                else if(c == 3)
+                {
+                    total = Double.parseDouble(s1) + Double.parseDouble(s4);
+                    tf.setText(String.valueOf(total));
+                }
+                else if(c == 4)
+                {
+                    total = Double.parseDouble(s1) - Double.parseDouble(s4);
+                    tf.setText(String.valueOf(total));
+                }
+            }
+    
+        }
+        catch(Exception e)
+        {
+            tf.setText("Invalid Operation");
+        }
+    }
     public static void main(String[] args)
     {
         new CalculatorV2();    
