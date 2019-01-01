@@ -235,7 +235,7 @@ class CalculatorV2 implements ActionListener
             {
                 tf.setText(" ");
             }
-            
+
             if(ae.getSource() == bEql)
             {
                 s4 = tf.getText();
