@@ -3,22 +3,26 @@ import javax.swing.*;
 import java.awt.color.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.Event;
-import java.awt.Font;
 
 class CalculatorV2 implements ActionListener 
 {
     //Global Declaration
     JFrame frm;
-    String s1, s2, s3, s4;
+    String s1, s2, s3, s4, s5;
     int c;
-    double total = 0;
+    double a = 0, b = 0, total = 0;
     TextField tf;
     Button b1, b2, b3, b4, b5, b6, b7, b8, b9, b0, bDot, bAdd, bSub, bMul, bDiv, bEql, bClr;
+    //Fonts
     Font f1 = new Font("Helvetica", Font.PLAIN, 22);
     Font f2 = new Font("Cambria", Font.PLAIN, 22);
-    //Constructor
+    Font f3 = new Font("Cambria", Font.PLAIN, 12);
+    //Colours
+    Color c1 = new Color(126, 87, 194);    //Buttons
+    Color c2 = new Color(229, 115, 115);   //Operators
+    Color c3 = new Color(255, 253, 231);  //TextField
 
+    //Constructor
     CalculatorV2()
     {
         //Frame
@@ -32,6 +36,11 @@ class CalculatorV2 implements ActionListener
         //TextField
         tf = new TextField(50);
         tf.setBounds(50, 50, 300, 70);
+
+        //Menu
+        Menu menu = new Menu("Menu");
+        MenuBar mBar = new MenuBar(); 
+        MenuItem mExit = new MenuItem("Exit");
 
         //Buttons
         b0 = new Button("0");
@@ -69,7 +78,11 @@ class CalculatorV2 implements ActionListener
         bClr = new Button("Clear");
         bClr.setBounds(210, 150, 140, 60);
         //Adding Elements
+        
         frm.add(tf);
+        menu.add(mExit);
+        mBar.add(menu);
+        frm.setMenuBar(mBar);
         frm.add(bDot);
         frm.add(bEql);
         frm.add(bDiv);
@@ -88,6 +101,8 @@ class CalculatorV2 implements ActionListener
         frm.add(b8);
         frm.add(b9);
         //Formatting
+        mExit.setFont(f3);
+        menu.setFont(f3);
         tf.setFont(f1);
         b0.setFont(f2);
         b1.setFont(f2);
@@ -106,7 +121,26 @@ class CalculatorV2 implements ActionListener
         bDot.setFont(f2);
         bEql.setFont(f2);
         bClr.setFont(f2);
-
+        
+        //Colour Formatting
+        tf.setBackground(c3);
+        bAdd.setBackground(c2);
+        bDiv.setBackground(c2);
+        bSub.setBackground(c2);
+        bMul.setBackground(c2);
+        bEql.setBackground(c2);
+        bClr.setBackground(c2);
+        b0.setBackground(c1);
+        b1.setBackground(c1);
+        b2.setBackground(c1);
+        b3.setBackground(c1);
+        b4.setBackground(c1);
+        b5.setBackground(c1);
+        b6.setBackground(c1);
+        b7.setBackground(c1);
+        b8.setBackground(c1);
+        b9.setBackground(c1);
+        bDot.setBackground(c1);
         //Action Listener object
         b0.addActionListener(this);
         b1.addActionListener(this);
@@ -133,73 +167,73 @@ class CalculatorV2 implements ActionListener
         try{
             if(ae.getSource() == b0)
             {
-                s1 =  tf.getText();
-                s2 = "0";
-                s3 = s1 + s2;
-                tf.setText(s3);
+                s3 =  tf.getText();
+                s4 = "0";
+                s5 = s3 + s4;
+                tf.setText(s5);
             }
             if(ae.getSource() == b1)
             {
-                s1 =  tf.getText();
-                s2 = "1";
-                s3 = s1 + s2;
-                tf.setText(s3);
+                s3 =  tf.getText();
+                s4 = "1";
+                s5 = s3 + s4;
+                tf.setText(s5);
             }
             if(ae.getSource() == b2)
             {
-                s1 =  tf.getText();
-                s2 = "2";
-                s3 = s1 + s2;
-                tf.setText(s3);
+                s3 =  tf.getText();
+                s4 = "2";
+                s5 = s3 + s4;
+                tf.setText(s5);
             }
             if(ae.getSource() == b3)
             {
-                s1 =  tf.getText();
-                s2 = "3";
-                s3 = s1 + s2;
-                tf.setText(s3);
+                s3 =  tf.getText();
+                s4 = "3";
+                s5 = s3 + s4;
+                tf.setText(s5);
             }
             if(ae.getSource() == b4)
             {
-                s1 =  tf.getText();
-                s2 = "4";
-                s3 = s1 + s2;
-                tf.setText(s3);
+                s3 =  tf.getText();
+                s4 = "4";
+                s5 = s3 + s4;
+                tf.setText(s5);
             }
             if(ae.getSource() == b5)
             {
-                s1 =  tf.getText();
-                s2 = "5";
-                s3 = s1 + s2;
-                tf.setText(s3);
+                s3 =  tf.getText();
+                s4 = "5";
+                s5 = s3 + s4;
+                tf.setText(s5);
             }
             if(ae.getSource() == b6)
             {
-                s1 =  tf.getText();
-                s2 = "6";
-                s3 = s1 + s2;
-                tf.setText(s3);
+                s3 =  tf.getText();
+                s4 = "6";
+                s5 = s3 + s4;
+                tf.setText(s5);
             }
             if(ae.getSource() == b7)
             {
-                s1 =  tf.getText();
-                s2 = "7";
-                s3 = s1 + s2;
-                tf.setText(s3);
+                s3 =  tf.getText();
+                s4 = "7";
+                s5 = s3 + s4;
+                tf.setText(s5);
             }
             if(ae.getSource() == b8)
             {
-                s1 =  tf.getText();
-                s2 = "8";
-                s3 = s1 + s2;
-                tf.setText(s3);
+                s3 =  tf.getText();
+                s4 = "8";
+                s5 = s3 + s4;
+                tf.setText(s5);
             }
             if(ae.getSource() == b9)
             {
-                s1 =  tf.getText();
-                s2 = "9";
-                s3 = s1 + s2;
-                tf.setText(s3);
+                s3 =  tf.getText();
+                s4 = "9";
+                s5 = s3 + s4;
+                tf.setText(s5);
             }
             if(ae.getSource() == bDiv)
             {
@@ -228,8 +262,8 @@ class CalculatorV2 implements ActionListener
             if(ae.getSource() == bDot)
             {
                 s1 = tf.getText();
-                s2 = s1 + ".";
-                tf.setText(s2);
+                s5 = s1 + ".";
+                tf.setText(s5);
             }
             if(ae.getSource() == bClr)
             {
@@ -238,15 +272,16 @@ class CalculatorV2 implements ActionListener
 
             if(ae.getSource() == bEql)
             {
-                s4 = tf.getText();
+                s2 = tf.getText();
+                a = Double.parseDouble(s1);
+                b = Double.parseDouble(s2);
                 if(c == 1)
                 {
                     try
                     {
-                        Double i = Double.parseDouble(s4);
-                        if(i != 0)
+                        if(b != 0)
                         {
-                            total = Double.parseDouble(s1) / Double.parseDouble(s4);
+                            total = a / b;
                             tf.setText(String.valueOf(total));
                         }
                         else
@@ -259,17 +294,17 @@ class CalculatorV2 implements ActionListener
 
                 else if(c == 2)
                 {
-                    total = Double.parseDouble(s1) / Double.parseDouble(s4);
+                    total = a * b;
                     tf.setText(String.valueOf(total));
                 }
                 else if(c == 3)
                 {
-                    total = Double.parseDouble(s1) + Double.parseDouble(s4);
+                    total = a + b;
                     tf.setText(String.valueOf(total));
                 }
                 else if(c == 4)
                 {
-                    total = Double.parseDouble(s1) - Double.parseDouble(s4);
+                    total = a - b;
                     tf.setText(String.valueOf(total));
                 }
             }
@@ -279,7 +314,9 @@ class CalculatorV2 implements ActionListener
         {
             tf.setText("Invalid Operation");
         }
+        
     }
+    
     public static void main(String[] args)
     {
         new CalculatorV2();    
